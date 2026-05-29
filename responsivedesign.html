@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Navigation Menu with Welcome Page</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Fixed Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      padding: 15px 40px;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    /* Navigation when scrolled */
+    nav.scrolled {
+      background: #222;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      padding: 10px 40px;
+    }
+
+    /* Menu List */
+    .menu {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+    }
+
+    /* Menu Links */
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 8px 12px;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+
+    /* Hover Effect */
+    .menu a:hover {
+      background-color: #00bcd4;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* Scrolled link color */
+    nav.scrolled .menu a {
+      color: #f1f1f1;
+    }
+
+    /* Welcome Page */
+    .welcome-page {
+      height: 100vh;
+      background: linear-gradient(to right, #141e30, #243b55);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .welcome-page h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .welcome-page p {
+      font-size: 22px;
+      margin-bottom: 30px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .welcome-btn {
+      text-decoration: none;
+      background: #00bcd4;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: 0.3s ease;
+    }
+
+    .welcome-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+    }
+
+    /* Fade Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Sections */
+    section {
+      height: 100vh;
+      padding-top: 100px;
+      text-align: center;
+      font-size: 40px;
+      color: white;
+    }
+
+    #home {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+    }
+
+    #about {
+      background: linear-gradient(to right, #43e97b, #38f9d7);
+    }
+
+    #services {
+      background: linear-gradient(to right, #fa709a, #fee140);
+    }
+
+    #contact {
+      background: linear-gradient(to right, #667eea, #764ba2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <ul class="menu">
+      <li><a href="#welcome">Welcome</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Welcome Page -->
+  <section class="welcome-page" id="welcome">
+    <h1>Welcome</h1>
+    
+  </section>
+
+  <!-- Main Sections -->
+  <section id="home">Home</section>
+
+  <section id="about">About</section>
+
+  <section id="services">Services</section>
+
+  <section id="contact">Contact</section>
+
+  <script>
+    // Select navbar
+    const navbar = document.getElementById("navbar");
+
+    // Scroll effect for navbar
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
